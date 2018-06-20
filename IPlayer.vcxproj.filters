@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="源文件\Decoders">
+      <UniqueIdentifier>{2596e3cd-0250-4ced-9a8d-8f426fefe418}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Decoders">
+      <UniqueIdentifier>{f1f880cf-6184-4c97-82c8-f68adff15e8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\OutPuters">
+      <UniqueIdentifier>{2c1506f9-6778-4f3a-8ee0-9b2f9347e3f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\OutPuters">
+      <UniqueIdentifier>{c88fbdfa-1681-4bd7-a77b-1f11fbb45fd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Helper">
+      <UniqueIdentifier>{221c4315-dea4-4cf2-a1f4-854cdf1bbde1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Helper">
+      <UniqueIdentifier>{0cd2f7f7-e7d7-4186-809d-48100799a7a0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CSoundOutPuter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CSoundDecoder.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="IPlayer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CDSOutputer.h">
+      <Filter>头文件\OutPuters</Filter>
+    </ClInclude>
+    <ClInclude Include="CSoundPlayer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CPcmDecoder.h">
+      <Filter>头文件\Decoders</Filter>
+    </ClInclude>
+    <ClInclude Include="CWavDecoder.h">
+      <Filter>头文件\Decoders</Filter>
+    </ClInclude>
+    <ClInclude Include="CMP3Decoder.h">
+      <Filter>头文件\Decoders</Filter>
+    </ClInclude>
+    <ClInclude Include="CWaveOut.h">
+      <Filter>头文件\OutPuters</Filter>
+    </ClInclude>
+    <ClInclude Include="COggDecoder.h">
+      <Filter>头文件\Decoders</Filter>
+    </ClInclude>
+    <ClInclude Include="CMidiDecoder.h">
+      <Filter>头文件\Decoders</Filter>
+    </ClInclude>
+    <ClInclude Include="IPlayerExport.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CStringConv.h">
+      <Filter>头文件\Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="CSoundFFT.h">
+      <Filter>头文件\Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="FastFourierTransform.h">
+      <Filter>头文件\Helper</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CSoundOutPuter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CSoundDecoder.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="IPlayer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CDSOutputer.cpp">
+      <Filter>源文件\OutPuters</Filter>
+    </ClCompile>
+    <ClCompile Include="CSoundPlayer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CPcmDecoder.cpp">
+      <Filter>源文件\Decoders</Filter>
+    </ClCompile>
+    <ClCompile Include="CWavDecoder.cpp">
+      <Filter>源文件\Decoders</Filter>
+    </ClCompile>
+    <ClCompile Include="CMP3Decoder.cpp">
+      <Filter>源文件\Decoders</Filter>
+    </ClCompile>
+    <ClCompile Include="CWaveOut.cpp">
+      <Filter>源文件\OutPuters</Filter>
+    </ClCompile>
+    <ClCompile Include="COggDecoder.cpp">
+      <Filter>源文件\Decoders</Filter>
+    </ClCompile>
+    <ClCompile Include="CMidiDecoder.cpp">
+      <Filter>源文件\Decoders</Filter>
+    </ClCompile>
+    <ClCompile Include="IPlayerExport.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CStringConv.cpp">
+      <Filter>源文件\Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="CSoundFFT.cpp">
+      <Filter>源文件\Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="FastFourierTransform.cpp">
+      <Filter>源文件\Helper</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Source.def">
+      <Filter>源文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="IPlayer.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

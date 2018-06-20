@@ -1,0 +1,4 @@
+LIBRARY
+EXPORTS
+  CreateIPlayer @1 NONAME
+  DestroyIPlayer @2 NONAME
