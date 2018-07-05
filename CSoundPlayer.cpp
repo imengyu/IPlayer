@@ -11,6 +11,11 @@ CSoundPlayer::~CSoundPlayer()
 {
 }
 
+CSoundDecoder * CSoundPlayer::GetCurrDecoder()
+{
+	return nullptr;
+}
+
 LPWSTR CSoundPlayer::GetLastErr()
 {
 	return L"Not implemented";

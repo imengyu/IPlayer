@@ -30,7 +30,7 @@ public:
 
 	bool OnCopyData(CSoundPlayer *instance, LPVOID buf, DWORD  buf_len) override;
 
-	bool Create(HWND hWnd, int sample_rate = 44100,  //PCM sample rate  
+	bool Create(HWND hWnd, ULONG sample_rate = 44100,  //PCM sample rate  
 		int channels = 2,       //PCM channel number  
 		int bits_per_sample = 16) override;
 	bool Destroy() override;
@@ -39,11 +39,15 @@ public:
 
 
 
-	int sample_rate = 44100;  //PCM sample rate  
+	ULONG sample_rate = 44100;  //PCM sample rate  
 	int channels = 2;         //PCM channel number  
 	int bits_per_sample = 16; //bits per sample  
 	bool drawFFT = false;
 
+	DWORD GetCurrPosSample()override;
+	double GetCurrPos()override;
+	DWORD GetOutPutingPosSample()override;
+	double GetOutPutingPos()override;
 	void SetFFTHDC(HDC hdc)override;
 	void DrawFFTOnHDC(HDC hdc)override;
 	void DrawFFTOnHDCSmall(HDC hdc)override;
@@ -54,14 +58,21 @@ public:
 
 	int GetVol() override;
 	void SetVol(int vol) override;
+
+	DWORD cur_decorder_pos;
 private:
+	bool last_data = false;
+	bool next_data_end = false;
+	bool closed = false;
+
+	DWORD bfs, bfs2;
 	CSoundFFT * m_FFT;
 	CSoundPlayer * parent;
 	IDirectSoundBuffer8 *m_pDSBuffer8 = NULL; //used to manage sound buffers.  
 	IDirectSoundBuffer *m_pDSBuffer = NULL;
 	IDirectSoundNotify8 *m_pDSNotify = NULL;
 	DSBPOSITIONNOTIFY m_pDSPosNotify[MAX_AUDIO_BUF];
-	HANDLE m_event[MAX_AUDIO_BUF + 1];
+	HANDLE m_event[MAX_AUDIO_BUF + 2];
 
 	DSBUFFERDESC dsbd;
 	HANDLE playThread;
@@ -73,6 +84,7 @@ private:
 	DWORD res = WAIT_OBJECT_0;
 	HANDLE hThreadEventReset;
 	HANDLE hThreadEventExit;
+	HANDLE hThreadEventEndOutPut;
 	int m_setedVol = 0;
 	bool m_outputing = false;
 

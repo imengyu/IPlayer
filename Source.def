@@ -1,4 +1,5 @@
 LIBRARY
 EXPORTS
-  CreateIPlayer @1 NONAME
-  DestroyIPlayer @2 NONAME
+  Copyright2018ByDfish @1
+  CreateIPlayer @2 NONAME
+  DestroyIPlayer @3 NONAME

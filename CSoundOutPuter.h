@@ -17,10 +17,15 @@ public:
 
 	virtual bool OnCopyData(CSoundPlayer *instance, LPVOID buf, DWORD  buf_len);
 
-	virtual bool Create(HWND hWnd, int sample_rate = 44100,  //PCM sample rate  
+	virtual bool Create(HWND hWnd, ULONG sample_rate = 44100,  //PCM sample rate  
 		int channels = 2,       //PCM channel number  
 		int bits_per_sample = 16);
 	virtual bool Destroy();
+
+	virtual double GetOutPutingPos() { return 0; };
+	virtual DWORD GetOutPutingPosSample() { return 0; };
+	virtual DWORD GetCurrPosSample() { return 0; };
+	virtual  double GetCurrPos() { return 0; };
 
 	virtual int GetVol();
 	virtual void SetVol(int vol);

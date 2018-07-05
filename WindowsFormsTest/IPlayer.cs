@@ -7,15 +7,39 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsTest
 {
+    /// <summary>
+    /// 播放器状态
+    /// </summary>
     public enum TPlayerStatus
     {
+        /// <summary>
+        /// 默认
+        /// </summary>
         Unknow,
+        /// <summary>
+        /// 就绪
+        /// </summary>
         NotOpen,
+        /// <summary>
+        /// 已打开文件
+        /// </summary>
         Opened,
+        /// <summary>
+        /// 正在播放
+        /// </summary>
         Playing,
+        /// <summary>
+        /// 已暂停
+        /// </summary>
         Paused,
+        /// <summary>
+        /// 已经播放至文件结尾
+        /// </summary>
         PlayEnd,
     };
+    /// <summary>
+    /// IPlayer Audio 播放器
+    /// </summary>
     public class IPlayer
     {
         public static string ptrtostr(IntPtr strptr)
@@ -159,5 +183,40 @@ namespace WindowsFormsTest
         /// <returns></returns>
         [DllImport("iplayer.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool SetVolume(int vol);
+
+        /// <summary>
+        /// 设置音乐播放的位置 (以 样本 sample 为单位)
+        /// </summary>
+        /// <returns></returns>
+        [DllImport("iplayer.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern ulong GetMusicPosSample();
+
+        /// <summary>
+        /// 获取音乐播放的样本位置 (以 样本 sample 为单位)，
+        /// 使用 GetMusicSampleRate 获取 音乐采样率
+        /// </summary>
+        /// <param name="sample"></param>
+        /// <returns></returns>
+        [DllImport("iplayer.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern ulong SetMusicPosSample(ulong sample);
+
+        /// <summary>
+        /// 获取音乐文件的 采样率
+        /// </summary>
+        /// <returns></returns>
+        [DllImport("iplayer.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern ulong GetMusicSampleRate();
+        /// <summary>
+        /// 获取音乐文件的 量化位数 （8/16/32）
+        /// </summary>
+        /// <returns></returns>
+        [DllImport("iplayer.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetMusicBitPerSample();
+        /// <summary>
+        /// 获取音乐文件的 声道数
+        /// </summary>
+        /// <returns>声道数</returns>
+        [DllImport("iplayer.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern int GetMusicChannelsCount();
     }
 }

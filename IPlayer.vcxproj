@@ -75,8 +75,8 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
     <TargetName>iplayer</TargetName>
-    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);.\PlayerDecorders\libmpg123\Debug;.\PlayerDecorders\libogg\Debug;.\PlayerDecorders\libvorbis\Debug;</LibraryPath>
-    <IncludePath>$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);.\PlayerDecorders\libmpg123;.\PlayerDecorders\libogg;.\PlayerDecorders\libvorbis;.\PlayerDecorders\</IncludePath>
+    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);.\PlayerDecorders\libmpg123\Debug;.\PlayerDecorders\libogg\Debug;.\PlayerDecorders\libvorbis\Debug;.\PlayerDecorders\faac\libfaac\Debug;.\PlayerDecorders\libFLAC\Debug;.\PlayerDecorders\faad\libfaad\Debug</LibraryPath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);.\PlayerDecorders\libmpg123;.\PlayerDecorders\libogg;.\PlayerDecorders\libvorbis;.\PlayerDecorders\faac\include;.\PlayerDecorders\libFLAC;.\PlayerDecorders;.\PlayerDecorders\faad\include</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -87,8 +87,8 @@
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
     <TargetName>iplayer</TargetName>
-    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);.\PlayerDecorders\libmpg123\Release;.\PlayerDecorders\libogg\Release;.\PlayerDecorders\libvorbis\Release;</LibraryPath>
-    <IncludePath>$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);.\PlayerDecorders\libogg;.\PlayerDecorders\libvorbis;.\PlayerDecorders\;.\PlayerDecorders\libmpg123</IncludePath>
+    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSdk_71A_LibraryPath_x86);.\PlayerDecorders\libmpg123\Release;.\PlayerDecorders\libogg\Release;.\PlayerDecorders\libvorbis\Release;.\PlayerDecorders\libFLAC\Release;.\PlayerDecorders\faac\libfaac\Release;.\PlayerDecorders\faad\libfaad\Release</LibraryPath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);.\PlayerDecorders\libogg;.\PlayerDecorders\libvorbis;.\PlayerDecorders\;.\PlayerDecorders\libmpg123;.\PlayerDecorders\faac\include;.\PlayerDecorders\libFLAC;.\PlayerDecorders\faad\include</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -97,7 +97,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
@@ -109,7 +109,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ModuleDefinitionFile>Source.def</ModuleDefinitionFile>
-      <AdditionalDependencies>libvorbis.lib;libogg.lib;libmpg123.lib;winmm.lib;dxguid.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libogg.lib;libvorbis.lib;libfaac.lib;libmpg123.lib;wmvcore.lib;winmm.lib;dxguid.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>C:\Program Files (x86)\Windows Kits\8.1\Lib\winv6.3\um\x86</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
@@ -150,7 +150,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ModuleDefinitionFile>Source.def</ModuleDefinitionFile>
-      <AdditionalDependencies>libvorbis.lib;libogg.lib;libmpg123.lib;winmm.lib;dxguid.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libogg.lib;libvorbis.lib;libfaac.lib;libmpg123.lib;wmvcore.lib;winmm.lib;dxguid.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>C:\Program Files (x86)\Windows Kits\8.1\Lib\winv6.3\um\x86</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
@@ -178,11 +178,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CAacDecoder.h" />
+    <ClInclude Include="CAC3Decoder.h" />
     <ClInclude Include="CDSOutputer.h" />
+    <ClInclude Include="CFLACDecoder.h" />
     <ClInclude Include="CMidiDecoder.h" />
     <ClInclude Include="CMP3Decoder.h" />
     <ClInclude Include="COggDecoder.h" />
     <ClInclude Include="CPcmDecoder.h" />
+    <ClInclude Include="CriticalSection.h" />
     <ClInclude Include="CSoundDecoder.h" />
     <ClInclude Include="CSoundFFT.h" />
     <ClInclude Include="CSoundOutPuter.h" />
@@ -190,14 +194,68 @@
     <ClInclude Include="CStringConv.h" />
     <ClInclude Include="CWavDecoder.h" />
     <ClInclude Include="CWaveOut.h" />
+    <ClInclude Include="CWmaDecoder.h" />
+    <ClInclude Include="DbgHlper.h" />
+    <ClInclude Include="DirectoryHelper.h" />
     <ClInclude Include="FastFourierTransform.h" />
     <ClInclude Include="IPlayer.h" />
     <ClInclude Include="IPlayerExport.h" />
-    <ClInclude Include="resource.h" />
+    <ClInclude Include="mywinres.h" />
+    <ClInclude Include="PathHelper.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\FLAC\all.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\FLAC\assert.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\FLAC\callback.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\FLAC\export.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\FLAC\format.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\FLAC\metadata.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\FLAC\ordinals.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\FLAC\stream_decoder.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\FLAC\stream_encoder.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\ia32\nasm.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\all.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\bitmath.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\bitreader.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\bitwriter.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\cpu.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\crc.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\fixed.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\float.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\format.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\lpc.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\md5.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\memory.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\metadata.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\ogg_decoder_aspect.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\ogg_encoder_aspect.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\ogg_helper.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\ogg_mapping.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\stream_encoder_framing.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\window.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\include\protected\all.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\include\protected\stream_decoder.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\include\protected\stream_encoder.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\share\alloc.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\share\getopt.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\share\grabbag.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\share\grabbag\cuesheet.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\share\grabbag\file.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\share\grabbag\picture.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\share\grabbag\replaygain.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\share\grabbag\seektable.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\share\replaygain_analysis.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\share\replaygain_synthesis.h" />
+    <ClInclude Include="PlayerDecorders\libFLAC\share\utf8.h" />
+    <ClInclude Include="resource2.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CAacDecoder.cpp" />
+    <ClCompile Include="CAC3Decoder.cpp" />
+    <ClCompile Include="CFLACDecoder.cpp" />
+    <ClCompile Include="CWmaDecoder.cpp" />
+    <ClCompile Include="DbgHlper.cpp" />
+    <ClCompile Include="DirectoryHelper.cpp" />
     <ClCompile Include="IPlayerExport.cpp" />
     <ClCompile Include="CDSOutputer.cpp" />
     <ClCompile Include="CMidiDecoder.cpp" />
@@ -214,6 +272,28 @@
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="FastFourierTransform.cpp" />
     <ClCompile Include="IPlayer.cpp" />
+    <ClCompile Include="PathHelper.cpp" />
+    <ClCompile Include="PlayerDecorders\libFLAC\bitmath.c" />
+    <ClCompile Include="PlayerDecorders\libFLAC\bitreader.c" />
+    <ClCompile Include="PlayerDecorders\libFLAC\bitwriter.c" />
+    <ClCompile Include="PlayerDecorders\libFLAC\cpu.c" />
+    <ClCompile Include="PlayerDecorders\libFLAC\crc.c" />
+    <ClCompile Include="PlayerDecorders\libFLAC\fixed.c" />
+    <ClCompile Include="PlayerDecorders\libFLAC\float.c" />
+    <ClCompile Include="PlayerDecorders\libFLAC\format.c" />
+    <ClCompile Include="PlayerDecorders\libFLAC\lpc.c" />
+    <ClCompile Include="PlayerDecorders\libFLAC\md5.c" />
+    <ClCompile Include="PlayerDecorders\libFLAC\memory.c" />
+    <ClCompile Include="PlayerDecorders\libFLAC\metadata_iterators.c" />
+    <ClCompile Include="PlayerDecorders\libFLAC\metadata_object.c" />
+    <ClCompile Include="PlayerDecorders\libFLAC\ogg_decoder_aspect.c" />
+    <ClCompile Include="PlayerDecorders\libFLAC\ogg_encoder_aspect.c" />
+    <ClCompile Include="PlayerDecorders\libFLAC\ogg_helper.c" />
+    <ClCompile Include="PlayerDecorders\libFLAC\ogg_mapping.c" />
+    <ClCompile Include="PlayerDecorders\libFLAC\stream_decoder.c" />
+    <ClCompile Include="PlayerDecorders\libFLAC\stream_encoder.c" />
+    <ClCompile Include="PlayerDecorders\libFLAC\stream_encoder_framing.c" />
+    <ClCompile Include="PlayerDecorders\libFLAC\window.c" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -222,10 +302,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="IPlayer.rc" />
+    <None Include="Source.def" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Source.def" />
+    <ResourceCompile Include="IPlayer.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

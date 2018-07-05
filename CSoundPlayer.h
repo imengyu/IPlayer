@@ -1,6 +1,6 @@
 #pragma once
 #include "stdafx.h"
-
+#include "CSoundDecoder.h"
 
 //音频格式（目前只支持几种）
 enum TStreamFormat
@@ -10,13 +10,14 @@ enum TStreamFormat
 	sfOgg = 2,//已支持OGG
 	sfWav = 3,//已支持WAV
 	sfPCM = 4,//已支持PCM
-	sfFLAC = 5,
-	sfFLACOgg = 6,
+	sfFLAC = 5,//已支持FLAC
+	sfFLACOgg = 6,//已支持FLAC  Vobis
 	sfAC3 = 7,
 	sfAacADTS = 8,
-	sfWaveIn = 9,
+	sfWaveIn = 9,//not used
 	sfMidi = 10,//已支持MIDI
-	sfAutodetect = 1000
+	sfWma = 11,//已支持wma
+	sfAutodetect = 1000//not used
 };
 
 //播放器状态
@@ -61,6 +62,9 @@ public:
 	//从头开始播放
 	virtual bool Restart() { return false; }
 
+	//获取当前解码器
+	virtual CSoundDecoder*GetCurrDecoder();
+
 	//音乐淡出
 	//* sec ：淡出需要的时间
 	//* from ：当前音量
@@ -83,6 +87,9 @@ public:
 	//获取播放器上一个错误信息
 	virtual LPWSTR GetLastErr();
 
+	//获取当前音乐的长度
+	// * 以 sample 为单位
+	virtual DWORD GetMusicLengthSample() { return 0; }
 	//获取音乐播放的位置
 	// * 以 秒 为单位
 	virtual double GetMusicPos() { return 0; }
@@ -93,6 +100,29 @@ public:
 	* 格式是：00:00/00:00 正在播放时间/音乐时长
 	*/
 	virtual LPWSTR GetMusicTimeString() { return 0; }
+	/*获取音乐正在播放的时间字符串
+	* 格式是：00:00 正在播放时间
+	*/
+	virtual LPWSTR GetMusicPosTimeString() { return 0; }
+	/*获取音乐时长字符串
+	* 格式是：00:00 音乐时长
+	*/
+	virtual LPWSTR GetMusicLenTimeString() { return 0; }
+
+	//获取音乐播放的样本位置
+	// * 以 样本 为单位
+	// * 使用 GetMusicSampleRate 获取 音乐采样率
+	virtual DWORD GetMusicPosSample() { return 0; }
+	//设置音乐播放的位置
+	// * 以 样本 sample 为单位
+	virtual DWORD SetMusicPosSample(DWORD sample) { return 0; }
+
+	//获取音乐文件的 采样率
+	virtual DWORD GetMusicSampleRate() { return 0; }
+	//获取音乐文件的 量化位数 （8/16/32）
+	virtual int GetMusicBitPerSample() { return 0; }
+	//获取音乐文件的 声道数
+	virtual int GetMusicChannelsCount() { return 0; }
 
 	virtual void SetFFTHDC(HDC hdc) {}
 	virtual void DrawFFTOnHDC(HDC hdc) {}
@@ -110,6 +140,12 @@ public:
 	* vol：音量数值 （1-100）
 	*/
 	virtual void SetPlayerVolume(int vol) {  }
+	/*设置默认音频输出参数
+	* sample_rate 采样率
+	* channels 声道数
+	* bits_per_sample 采样位数
+	*/
+	virtual void SetDefOutPutSettings(ULONG sample_rate, int channels, int bits_per_sample) {};
 
 	//获取是否正在播放midi音乐
 	virtual bool IsPlayingMidi() { return false; };

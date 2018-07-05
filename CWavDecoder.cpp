@@ -83,6 +83,8 @@ bool CWavDecoder::Open(LPWSTR file)
 	_DataOffset = m_ckRiff.dwDataOffset;
 	_BitPerSample = ((double)(GetMusicChannelsCount()*GetMusicBitsPerSample() * GetMusicSampleRate()) / 8);;
 	_FileSec = (double)_FileSize / _BitPerSample;
+	_CurSec = 0;
+	cur = 0;
 
 	return true;
 }
@@ -101,7 +103,7 @@ int CWavDecoder::GetMusicBitsPerSample()
 {
 	return m_pwfx.wBitsPerSample;
 }
-int CWavDecoder::GetMusicSampleRate()
+ULONG CWavDecoder::GetMusicSampleRate()
 {
 	return m_pwfx.nSamplesPerSec;
 }
@@ -109,26 +111,30 @@ double CWavDecoder::GetMusicLength()
 {
 	return _FileSec;
 }
-double CWavDecoder::GetCurSample()
+DWORD CWavDecoder::GetMusicLengthSample()
 {
-	_CurSec = (double)cur / (double)_BitPerSample;
-	return _CurSec* GetMusicSampleRate();
+	return 0;
 }
-double CWavDecoder::SeekToSample(double sec)
+DWORD CWavDecoder::GetCurSample()
 {
-	_CurSec = sec / GetMusicSampleRate();
+	_CurSec = static_cast<DWORD>((double)cur / (double)_BitPerSample);
+	return static_cast<DWORD>(_CurSec* GetMusicSampleRate());
+}
+DWORD CWavDecoder::SeekToSample(DWORD sec)
+{
+	_CurSec = sec / (double)GetMusicSampleRate();
 	SeekToSec(_CurSec);
-	return 0.0;
+	return 0;
 }
 double CWavDecoder::SeekToSec(double sec)
 {
 	_CurSec = sec;
 	return (double)Seek((LONG)(_BitPerSample*sec), SEEK_SET);
 }
-size_t CWavDecoder::Read(void * _Buffer, size_t _BufferSize, size_t _ElementSize, size_t _ElementCount)
+size_t CWavDecoder::Read(void * _Buffer, size_t _BufferSize)
 {
 	if (hStream) {
-		long l = mmioRead(hStream, (HPSTR)_Buffer, _ElementSize*_ElementCount);
+		long l = mmioRead(hStream, (HPSTR)_Buffer, _BufferSize);
 		cur += l;
 		return l;
 	}

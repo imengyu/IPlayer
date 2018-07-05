@@ -1,0 +1,1120 @@
+﻿// Created by Microsoft (R) C/C++ Compiler Version 14.12.25835.0 (4720b7c0).
+//
+// e:\winprojects\iplayer\iplayer\debug\shell32.tli
+//
+// Wrapper implementations for Win32 type library Shell32.dll
+// compiler-generated file created 07/03/18 at 19:14:49 - DO NOT EDIT!
+
+#pragma once
+
+//
+// interface IFolderViewOC wrapper method implementations
+//
+
+inline HRESULT IFolderViewOC::SetFolderView ( IDispatch * pdisp ) {
+    HRESULT _hr = raw_SetFolderView(pdisp);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// dispinterface DShellFolderViewEvents wrapper method implementations
+//
+
+inline HRESULT DShellFolderViewEvents::SelectionChanged ( ) {
+    return _com_dispatch_method(this, 0xc8, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+inline HRESULT DShellFolderViewEvents::EnumDone ( ) {
+    return _com_dispatch_method(this, 0xc9, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+inline VARIANT_BOOL DShellFolderViewEvents::VerbInvoked ( ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0xca, DISPATCH_METHOD, VT_BOOL, (void*)&_result, NULL);
+    return _result;
+}
+
+inline VARIANT_BOOL DShellFolderViewEvents::DefaultVerbInvoked ( ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0xcb, DISPATCH_METHOD, VT_BOOL, (void*)&_result, NULL);
+    return _result;
+}
+
+inline VARIANT_BOOL DShellFolderViewEvents::BeginDrag ( ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0xcc, DISPATCH_METHOD, VT_BOOL, (void*)&_result, NULL);
+    return _result;
+}
+
+//
+// interface DFConstraint wrapper method implementations
+//
+
+inline _bstr_t DFConstraint::GetName ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Name(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _variant_t DFConstraint::GetValue ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_Value(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+//
+// interface FolderItemVerb wrapper method implementations
+//
+
+inline IDispatchPtr FolderItemVerb::GetApplication ( ) {
+    IDispatch * _result = 0;
+    HRESULT _hr = get_Application(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IDispatchPtr(_result, false);
+}
+
+inline IDispatchPtr FolderItemVerb::GetParent ( ) {
+    IDispatch * _result = 0;
+    HRESULT _hr = get_Parent(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IDispatchPtr(_result, false);
+}
+
+inline _bstr_t FolderItemVerb::GetName ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Name(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline HRESULT FolderItemVerb::DoIt ( ) {
+    HRESULT _hr = raw_DoIt();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface FolderItemVerbs wrapper method implementations
+//
+
+inline long FolderItemVerbs::GetCount ( ) {
+    long _result = 0;
+    HRESULT _hr = get_Count(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline IDispatchPtr FolderItemVerbs::GetApplication ( ) {
+    IDispatch * _result = 0;
+    HRESULT _hr = get_Application(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IDispatchPtr(_result, false);
+}
+
+inline IDispatchPtr FolderItemVerbs::GetParent ( ) {
+    IDispatch * _result = 0;
+    HRESULT _hr = get_Parent(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IDispatchPtr(_result, false);
+}
+
+inline FolderItemVerbPtr FolderItemVerbs::Item ( const _variant_t & index ) {
+    struct FolderItemVerb * _result = 0;
+    HRESULT _hr = raw_Item(index, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return FolderItemVerbPtr(_result, false);
+}
+
+inline IUnknownPtr FolderItemVerbs::_NewEnum ( ) {
+    IUnknown * _result = 0;
+    HRESULT _hr = raw__NewEnum(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IUnknownPtr(_result, false);
+}
+
+//
+// interface FolderItem wrapper method implementations
+//
+
+inline IDispatchPtr FolderItem::GetApplication ( ) {
+    IDispatch * _result = 0;
+    HRESULT _hr = get_Application(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IDispatchPtr(_result, false);
+}
+
+inline IDispatchPtr FolderItem::GetParent ( ) {
+    IDispatch * _result = 0;
+    HRESULT _hr = get_Parent(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IDispatchPtr(_result, false);
+}
+
+inline _bstr_t FolderItem::GetName ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Name(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void FolderItem::PutName ( _bstr_t pbs ) {
+    HRESULT _hr = put_Name(pbs);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t FolderItem::GetPath ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Path(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline IDispatchPtr FolderItem::GetGetLink ( ) {
+    IDispatch * _result = 0;
+    HRESULT _hr = get_GetLink(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IDispatchPtr(_result, false);
+}
+
+inline IDispatchPtr FolderItem::GetGetFolder ( ) {
+    IDispatch * _result = 0;
+    HRESULT _hr = get_GetFolder(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IDispatchPtr(_result, false);
+}
+
+inline VARIANT_BOOL FolderItem::GetIsLink ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_IsLink(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL FolderItem::GetIsFolder ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_IsFolder(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL FolderItem::GetIsFileSystem ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_IsFileSystem(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL FolderItem::GetIsBrowsable ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_IsBrowsable(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline DATE FolderItem::GetModifyDate ( ) {
+    DATE _result = 0;
+    HRESULT _hr = get_ModifyDate(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void FolderItem::PutModifyDate ( DATE pdt ) {
+    HRESULT _hr = put_ModifyDate(pdt);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long FolderItem::GetSize ( ) {
+    long _result = 0;
+    HRESULT _hr = get_Size(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t FolderItem::GetType ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Type(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline FolderItemVerbsPtr FolderItem::Verbs ( ) {
+    struct FolderItemVerbs * _result = 0;
+    HRESULT _hr = raw_Verbs(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return FolderItemVerbsPtr(_result, false);
+}
+
+inline HRESULT FolderItem::InvokeVerb ( const _variant_t & vVerb ) {
+    HRESULT _hr = raw_InvokeVerb(vVerb);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface FolderItems wrapper method implementations
+//
+
+inline long FolderItems::GetCount ( ) {
+    long _result = 0;
+    HRESULT _hr = get_Count(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline IDispatchPtr FolderItems::GetApplication ( ) {
+    IDispatch * _result = 0;
+    HRESULT _hr = get_Application(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IDispatchPtr(_result, false);
+}
+
+inline IDispatchPtr FolderItems::GetParent ( ) {
+    IDispatch * _result = 0;
+    HRESULT _hr = get_Parent(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IDispatchPtr(_result, false);
+}
+
+inline FolderItemPtr FolderItems::Item ( const _variant_t & index ) {
+    struct FolderItem * _result = 0;
+    HRESULT _hr = raw_Item(index, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return FolderItemPtr(_result, false);
+}
+
+inline IUnknownPtr FolderItems::_NewEnum ( ) {
+    IUnknown * _result = 0;
+    HRESULT _hr = raw__NewEnum(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IUnknownPtr(_result, false);
+}
+
+//
+// interface Folder wrapper method implementations
+//
+
+inline _bstr_t Folder::GetTitle ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Title(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline IDispatchPtr Folder::GetApplication ( ) {
+    IDispatch * _result = 0;
+    HRESULT _hr = get_Application(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IDispatchPtr(_result, false);
+}
+
+inline IDispatchPtr Folder::GetParent ( ) {
+    IDispatch * _result = 0;
+    HRESULT _hr = get_Parent(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IDispatchPtr(_result, false);
+}
+
+inline FolderPtr Folder::GetParentFolder ( ) {
+    struct Folder * _result = 0;
+    HRESULT _hr = get_ParentFolder(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return FolderPtr(_result, false);
+}
+
+inline FolderItemsPtr Folder::Items ( ) {
+    struct FolderItems * _result = 0;
+    HRESULT _hr = raw_Items(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return FolderItemsPtr(_result, false);
+}
+
+inline FolderItemPtr Folder::ParseName ( _bstr_t bName ) {
+    struct FolderItem * _result = 0;
+    HRESULT _hr = raw_ParseName(bName, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return FolderItemPtr(_result, false);
+}
+
+inline HRESULT Folder::NewFolder ( _bstr_t bName, const _variant_t & vOptions ) {
+    HRESULT _hr = raw_NewFolder(bName, vOptions);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT Folder::MoveHere ( const _variant_t & vItem, const _variant_t & vOptions ) {
+    HRESULT _hr = raw_MoveHere(vItem, vOptions);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT Folder::CopyHere ( const _variant_t & vItem, const _variant_t & vOptions ) {
+    HRESULT _hr = raw_CopyHere(vItem, vOptions);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _bstr_t Folder::GetDetailsOf ( const _variant_t & vItem, int iColumn ) {
+    BSTR _result = 0;
+    HRESULT _hr = raw_GetDetailsOf(vItem, iColumn, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+//
+// interface Folder2 wrapper method implementations
+//
+
+inline FolderItemPtr Folder2::GetSelf ( ) {
+    struct FolderItem * _result = 0;
+    HRESULT _hr = get_Self(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return FolderItemPtr(_result, false);
+}
+
+inline long Folder2::GetOfflineStatus ( ) {
+    long _result = 0;
+    HRESULT _hr = get_OfflineStatus(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline HRESULT Folder2::Synchronize ( ) {
+    HRESULT _hr = raw_Synchronize();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline VARIANT_BOOL Folder2::GetHaveToShowWebViewBarricade ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_HaveToShowWebViewBarricade(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline HRESULT Folder2::DismissedWebViewBarricade ( ) {
+    HRESULT _hr = raw_DismissedWebViewBarricade();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface Folder3 wrapper method implementations
+//
+
+inline VARIANT_BOOL Folder3::GetShowWebViewBarricade ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_ShowWebViewBarricade(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void Folder3::PutShowWebViewBarricade ( VARIANT_BOOL pbShowWebViewBarricade ) {
+    HRESULT _hr = put_ShowWebViewBarricade(pbShowWebViewBarricade);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+//
+// interface FolderItem2 wrapper method implementations
+//
+
+inline HRESULT FolderItem2::InvokeVerbEx ( const _variant_t & vVerb, const _variant_t & vArgs ) {
+    HRESULT _hr = raw_InvokeVerbEx(vVerb, vArgs);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _variant_t FolderItem2::ExtendedProperty ( _bstr_t bstrPropName ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = raw_ExtendedProperty(bstrPropName, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+//
+// interface FolderItems2 wrapper method implementations
+//
+
+inline HRESULT FolderItems2::InvokeVerbEx ( const _variant_t & vVerb, const _variant_t & vArgs ) {
+    HRESULT _hr = raw_InvokeVerbEx(vVerb, vArgs);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface FolderItems3 wrapper method implementations
+//
+
+inline HRESULT FolderItems3::Filter ( long grfFlags, _bstr_t bstrFileSpec ) {
+    HRESULT _hr = raw_Filter(grfFlags, bstrFileSpec);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline FolderItemVerbsPtr FolderItems3::GetVerbs ( ) {
+    struct FolderItemVerbs * _result = 0;
+    HRESULT _hr = get_Verbs(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return FolderItemVerbsPtr(_result, false);
+}
+
+//
+// interface IShellLinkDual wrapper method implementations
+//
+
+inline _bstr_t IShellLinkDual::GetPath ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Path(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void IShellLinkDual::PutPath ( _bstr_t pbs ) {
+    HRESULT _hr = put_Path(pbs);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t IShellLinkDual::GetDescription ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Description(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void IShellLinkDual::PutDescription ( _bstr_t pbs ) {
+    HRESULT _hr = put_Description(pbs);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t IShellLinkDual::GetWorkingDirectory ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_WorkingDirectory(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void IShellLinkDual::PutWorkingDirectory ( _bstr_t pbs ) {
+    HRESULT _hr = put_WorkingDirectory(pbs);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t IShellLinkDual::GetArguments ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Arguments(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void IShellLinkDual::PutArguments ( _bstr_t pbs ) {
+    HRESULT _hr = put_Arguments(pbs);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline int IShellLinkDual::GetHotkey ( ) {
+    int _result = 0;
+    HRESULT _hr = get_Hotkey(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IShellLinkDual::PutHotkey ( int piHK ) {
+    HRESULT _hr = put_Hotkey(piHK);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline int IShellLinkDual::GetShowCommand ( ) {
+    int _result = 0;
+    HRESULT _hr = get_ShowCommand(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IShellLinkDual::PutShowCommand ( int piShowCommand ) {
+    HRESULT _hr = put_ShowCommand(piShowCommand);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT IShellLinkDual::Resolve ( int fFlags ) {
+    HRESULT _hr = raw_Resolve(fFlags);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline int IShellLinkDual::GetIconLocation ( BSTR * pbs ) {
+    int _result = 0;
+    HRESULT _hr = raw_GetIconLocation(pbs, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline HRESULT IShellLinkDual::SetIconLocation ( _bstr_t bs, int iIcon ) {
+    HRESULT _hr = raw_SetIconLocation(bs, iIcon);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IShellLinkDual::Save ( const _variant_t & vWhere ) {
+    HRESULT _hr = raw_Save(vWhere);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface IShellLinkDual2 wrapper method implementations
+//
+
+inline FolderItemPtr IShellLinkDual2::GetTarget ( ) {
+    struct FolderItem * _result = 0;
+    HRESULT _hr = get_Target(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return FolderItemPtr(_result, false);
+}
+
+//
+// interface IShellFolderViewDual wrapper method implementations
+//
+
+inline IDispatchPtr IShellFolderViewDual::GetApplication ( ) {
+    IDispatch * _result = 0;
+    HRESULT _hr = get_Application(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IDispatchPtr(_result, false);
+}
+
+inline IDispatchPtr IShellFolderViewDual::GetParent ( ) {
+    IDispatch * _result = 0;
+    HRESULT _hr = get_Parent(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IDispatchPtr(_result, false);
+}
+
+inline FolderPtr IShellFolderViewDual::GetFolder ( ) {
+    struct Folder * _result = 0;
+    HRESULT _hr = get_Folder(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return FolderPtr(_result, false);
+}
+
+inline FolderItemsPtr IShellFolderViewDual::SelectedItems ( ) {
+    struct FolderItems * _result = 0;
+    HRESULT _hr = raw_SelectedItems(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return FolderItemsPtr(_result, false);
+}
+
+inline FolderItemPtr IShellFolderViewDual::GetFocusedItem ( ) {
+    struct FolderItem * _result = 0;
+    HRESULT _hr = get_FocusedItem(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return FolderItemPtr(_result, false);
+}
+
+inline HRESULT IShellFolderViewDual::SelectItem ( VARIANT * pvfi, int dwFlags ) {
+    HRESULT _hr = raw_SelectItem(pvfi, dwFlags);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _bstr_t IShellFolderViewDual::PopupItemMenu ( struct FolderItem * pfi, const _variant_t & vx, const _variant_t & vy ) {
+    BSTR _result = 0;
+    HRESULT _hr = raw_PopupItemMenu(pfi, vx, vy, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline IDispatchPtr IShellFolderViewDual::GetScript ( ) {
+    IDispatch * _result = 0;
+    HRESULT _hr = get_Script(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IDispatchPtr(_result, false);
+}
+
+inline long IShellFolderViewDual::GetViewOptions ( ) {
+    long _result = 0;
+    HRESULT _hr = get_ViewOptions(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+//
+// interface IShellFolderViewDual2 wrapper method implementations
+//
+
+inline unsigned int IShellFolderViewDual2::GetCurrentViewMode ( ) {
+    unsigned int _result = 0;
+    HRESULT _hr = get_CurrentViewMode(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IShellFolderViewDual2::PutCurrentViewMode ( unsigned int pViewMode ) {
+    HRESULT _hr = put_CurrentViewMode(pViewMode);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT IShellFolderViewDual2::SelectItemRelative ( int iRelative ) {
+    HRESULT _hr = raw_SelectItemRelative(iRelative);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface IShellFolderViewDual3 wrapper method implementations
+//
+
+inline _bstr_t IShellFolderViewDual3::GetGroupBy ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_GroupBy(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void IShellFolderViewDual3::PutGroupBy ( _bstr_t pbstrGroupBy ) {
+    HRESULT _hr = put_GroupBy(pbstrGroupBy);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline unsigned long IShellFolderViewDual3::GetFolderFlags ( ) {
+    unsigned long _result = 0;
+    HRESULT _hr = get_FolderFlags(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IShellFolderViewDual3::PutFolderFlags ( unsigned long pdwFlags ) {
+    HRESULT _hr = put_FolderFlags(pdwFlags);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t IShellFolderViewDual3::GetSortColumns ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_SortColumns(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void IShellFolderViewDual3::PutSortColumns ( _bstr_t pbstrSortColumns ) {
+    HRESULT _hr = put_SortColumns(pbstrSortColumns);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline void IShellFolderViewDual3::PutIconSize ( int piIconSize ) {
+    HRESULT _hr = put_IconSize(piIconSize);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline int IShellFolderViewDual3::GetIconSize ( ) {
+    int _result = 0;
+    HRESULT _hr = get_IconSize(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline HRESULT IShellFolderViewDual3::FilterView ( _bstr_t bstrFilterText ) {
+    HRESULT _hr = raw_FilterView(bstrFilterText);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface IShellDispatch wrapper method implementations
+//
+
+inline IDispatchPtr IShellDispatch::GetApplication ( ) {
+    IDispatch * _result = 0;
+    HRESULT _hr = get_Application(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IDispatchPtr(_result, false);
+}
+
+inline IDispatchPtr IShellDispatch::GetParent ( ) {
+    IDispatch * _result = 0;
+    HRESULT _hr = get_Parent(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IDispatchPtr(_result, false);
+}
+
+inline FolderPtr IShellDispatch::NameSpace ( const _variant_t & vDir ) {
+    struct Folder * _result = 0;
+    HRESULT _hr = raw_NameSpace(vDir, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return FolderPtr(_result, false);
+}
+
+inline FolderPtr IShellDispatch::BrowseForFolder ( long Hwnd, _bstr_t Title, long Options, const _variant_t & RootFolder ) {
+    struct Folder * _result = 0;
+    HRESULT _hr = raw_BrowseForFolder(Hwnd, Title, Options, RootFolder, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return FolderPtr(_result, false);
+}
+
+inline IDispatchPtr IShellDispatch::Windows ( ) {
+    IDispatch * _result = 0;
+    HRESULT _hr = raw_Windows(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IDispatchPtr(_result, false);
+}
+
+inline HRESULT IShellDispatch::Open ( const _variant_t & vDir ) {
+    HRESULT _hr = raw_Open(vDir);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IShellDispatch::Explore ( const _variant_t & vDir ) {
+    HRESULT _hr = raw_Explore(vDir);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IShellDispatch::MinimizeAll ( ) {
+    HRESULT _hr = raw_MinimizeAll();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IShellDispatch::UndoMinimizeALL ( ) {
+    HRESULT _hr = raw_UndoMinimizeALL();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IShellDispatch::FileRun ( ) {
+    HRESULT _hr = raw_FileRun();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IShellDispatch::CascadeWindows ( ) {
+    HRESULT _hr = raw_CascadeWindows();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IShellDispatch::TileVertically ( ) {
+    HRESULT _hr = raw_TileVertically();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IShellDispatch::TileHorizontally ( ) {
+    HRESULT _hr = raw_TileHorizontally();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IShellDispatch::ShutdownWindows ( ) {
+    HRESULT _hr = raw_ShutdownWindows();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IShellDispatch::Suspend ( ) {
+    HRESULT _hr = raw_Suspend();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IShellDispatch::EjectPC ( ) {
+    HRESULT _hr = raw_EjectPC();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IShellDispatch::SetTime ( ) {
+    HRESULT _hr = raw_SetTime();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IShellDispatch::TrayProperties ( ) {
+    HRESULT _hr = raw_TrayProperties();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IShellDispatch::Help ( ) {
+    HRESULT _hr = raw_Help();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IShellDispatch::FindFiles ( ) {
+    HRESULT _hr = raw_FindFiles();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IShellDispatch::FindComputer ( ) {
+    HRESULT _hr = raw_FindComputer();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IShellDispatch::RefreshMenu ( ) {
+    HRESULT _hr = raw_RefreshMenu();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IShellDispatch::ControlPanelItem ( _bstr_t bstrDir ) {
+    HRESULT _hr = raw_ControlPanelItem(bstrDir);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface IShellDispatch2 wrapper method implementations
+//
+
+inline long IShellDispatch2::IsRestricted ( _bstr_t Group, _bstr_t Restriction ) {
+    long _result = 0;
+    HRESULT _hr = raw_IsRestricted(Group, Restriction, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline HRESULT IShellDispatch2::ShellExecute ( _bstr_t File, const _variant_t & vArgs, const _variant_t & vDir, const _variant_t & vOperation, const _variant_t & vShow ) {
+    HRESULT _hr = raw_ShellExecute(File, vArgs, vDir, vOperation, vShow);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IShellDispatch2::FindPrinter ( _bstr_t Name, _bstr_t location, _bstr_t model ) {
+    HRESULT _hr = raw_FindPrinter(Name, location, model);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _variant_t IShellDispatch2::GetSystemInformation ( _bstr_t Name ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = raw_GetSystemInformation(Name, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline _variant_t IShellDispatch2::ServiceStart ( _bstr_t ServiceName, const _variant_t & Persistent ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = raw_ServiceStart(ServiceName, Persistent, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline _variant_t IShellDispatch2::ServiceStop ( _bstr_t ServiceName, const _variant_t & Persistent ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = raw_ServiceStop(ServiceName, Persistent, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline _variant_t IShellDispatch2::IsServiceRunning ( _bstr_t ServiceName ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = raw_IsServiceRunning(ServiceName, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline _variant_t IShellDispatch2::CanStartStopService ( _bstr_t ServiceName ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = raw_CanStartStopService(ServiceName, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline _variant_t IShellDispatch2::ShowBrowserBar ( _bstr_t bstrClsid, const _variant_t & bShow ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = raw_ShowBrowserBar(bstrClsid, bShow, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+//
+// interface IShellDispatch3 wrapper method implementations
+//
+
+inline HRESULT IShellDispatch3::AddToRecent ( const _variant_t & varFile, _bstr_t bstrCategory ) {
+    HRESULT _hr = raw_AddToRecent(varFile, bstrCategory);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface IShellDispatch4 wrapper method implementations
+//
+
+inline HRESULT IShellDispatch4::WindowsSecurity ( ) {
+    HRESULT _hr = raw_WindowsSecurity();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IShellDispatch4::ToggleDesktop ( ) {
+    HRESULT _hr = raw_ToggleDesktop();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _variant_t IShellDispatch4::ExplorerPolicy ( _bstr_t bstrPolicyName ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = raw_ExplorerPolicy(bstrPolicyName, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline VARIANT_BOOL IShellDispatch4::GetSetting ( long lSetting ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = raw_GetSetting(lSetting, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+//
+// interface IShellDispatch5 wrapper method implementations
+//
+
+inline HRESULT IShellDispatch5::WindowSwitcher ( ) {
+    HRESULT _hr = raw_WindowSwitcher();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface IShellDispatch6 wrapper method implementations
+//
+
+inline HRESULT IShellDispatch6::SearchCommand ( ) {
+    HRESULT _hr = raw_SearchCommand();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface IFileSearchBand wrapper method implementations
+//
+
+inline HRESULT IFileSearchBand::SetFocus ( ) {
+    HRESULT _hr = raw_SetFocus();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IFileSearchBand::SetSearchParameters ( BSTR * pbstrSearchID, VARIANT_BOOL bNavToResults, VARIANT * pvarScope, VARIANT * pvarQueryFile ) {
+    HRESULT _hr = raw_SetSearchParameters(pbstrSearchID, bNavToResults, pvarScope, pvarQueryFile);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _bstr_t IFileSearchBand::GetSearchID ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_SearchID(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _variant_t IFileSearchBand::GetScope ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_Scope(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline _variant_t IFileSearchBand::GetQueryFile ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_QueryFile(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+//
+// interface IWebWizardHost wrapper method implementations
+//
+
+inline HRESULT IWebWizardHost::FinalBack ( ) {
+    HRESULT _hr = raw_FinalBack();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IWebWizardHost::FinalNext ( ) {
+    HRESULT _hr = raw_FinalNext();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IWebWizardHost::Cancel ( ) {
+    HRESULT _hr = raw_Cancel();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline void IWebWizardHost::PutCaption ( _bstr_t pbstrCaption ) {
+    HRESULT _hr = put_Caption(pbstrCaption);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t IWebWizardHost::GetCaption ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Caption(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void IWebWizardHost::PutProperty ( _bstr_t bstrPropertyName, VARIANT * pvProperty ) {
+    HRESULT _hr = put_Property(bstrPropertyName, pvProperty);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _variant_t IWebWizardHost::GetProperty ( _bstr_t bstrPropertyName ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_Property(bstrPropertyName, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline HRESULT IWebWizardHost::SetWizardButtons ( VARIANT_BOOL vfEnableBack, VARIANT_BOOL vfEnableNext, VARIANT_BOOL vfLastPage ) {
+    HRESULT _hr = raw_SetWizardButtons(vfEnableBack, vfEnableNext, vfLastPage);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IWebWizardHost::SetHeaderText ( _bstr_t bstrHeaderTitle, _bstr_t bstrHeaderSubtitle ) {
+    HRESULT _hr = raw_SetHeaderText(bstrHeaderTitle, bstrHeaderSubtitle);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface IWebWizardHost2 wrapper method implementations
+//
+
+inline _bstr_t IWebWizardHost2::SignString ( _bstr_t Value ) {
+    BSTR _result = 0;
+    HRESULT _hr = raw_SignString(Value, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+//
+// interface INewWDEvents wrapper method implementations
+//
+
+inline VARIANT_BOOL INewWDEvents::PassportAuthenticate ( _bstr_t bstrSignInUrl ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = raw_PassportAuthenticate(bstrSignInUrl, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}

@@ -14,14 +14,17 @@ public:
 
 	int GetMusicChannelsCount()override;
 	int GetMusicBitsPerSample()override;
-	int GetMusicSampleRate()override;
+	ULONG GetMusicSampleRate()override;
 	double GetMusicLength()override;
 
-	double GetCurSample()override;
-	double SeekToSample(double sec)override;
+	DWORD GetMusicLengthSample()override;
+	DWORD GetCurSample()override;
+	DWORD SeekToSample(DWORD sp)override;
+
 	double SeekToSec(double sec)override;
-	size_t Read(void*  _Buffer, size_t _BufferSize, size_t _ElementSize, size_t _ElementCount) override;
-	int Seek(long  _Offset, int  _Origin) override;
+	size_t Read(void*  _Buffer, size_t _BufferSize) override;
+
+	int Seek(long _Offset, int _Origin);
 
 	double GetCurSec();
 	bool IsOpened() override;

@@ -16,15 +16,16 @@ public:
 
 	int GetMusicChannelsCount()override;
 	int GetMusicBitsPerSample()override;
-	int GetMusicSampleRate()override;
+	ULONG GetMusicSampleRate()override;
 	int GetMusicBitrate();
 	double GetMusicLength()override;
 
-	double GetCurSample()override;
-	double SeekToSample(double sec)override;
+	DWORD GetMusicLengthSample()override;
+	DWORD GetCurSample()override;
+	DWORD SeekToSample(DWORD sp)override;
+
 	double SeekToSec(double sec)override;
-	size_t Read(void*  _Buffer, size_t _BufferSize, size_t _ElementSize, size_t _ElementCount) override;
-	int Seek(long  _Offset, int  _Origin) override;
+	size_t Read(void*  _Buffer, size_t _BufferSize) override;
 
 	double GetCurSec();
 	bool IsOpened() override;
@@ -39,7 +40,7 @@ private:
 	ogg_int64_t m_CurSample = 0;
 	ogg_int64_t m_Samples;
 	int m_Channels;//声道数
-	int m_SampleRate;//采样率
+	ULONG m_SampleRate;//采样率
 	int m_BitsPerSample;
 	int m_BitRate;
 };

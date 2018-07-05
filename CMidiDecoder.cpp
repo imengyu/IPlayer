@@ -1,9 +1,10 @@
 #include "stdafx.h"
 #include "CMidiDecoder.h"
+#include "IPlayer.h"
 
-
-CMidiDecoder::CMidiDecoder()
+CMidiDecoder::CMidiDecoder(IPlayer*parent)
 {
+	this->parent = parent;
 }
 CMidiDecoder::~CMidiDecoder()
 {
@@ -62,53 +63,19 @@ bool CMidiDecoder::Close()
 	return false;
 }
 
-int CMidiDecoder::GetMusicChannelsCount()
-{
-	return 0;
-}
-int CMidiDecoder::GetMusicBitsPerSample()
-{
-	return 0;
-}
-int CMidiDecoder::GetMusicSampleRate()
-{
-	return 0;
-}
-int CMidiDecoder::GetMusicBitrate()
-{
-	return 0;
-}
 
 double CMidiDecoder::GetMusicLength()
 {
 	return m_LengthSec;
 }
-double CMidiDecoder::GetCurSample()
-{
-	return 0.0;
-}
-double CMidiDecoder::SeekToSample(double sec)
-{
-	return 0.0;
-}
 double CMidiDecoder::SeekToSec(double sec)
 {
-	double time = sec * m_LengthSec * 1000;
-	MCI_SEEK_PARMS SeekParms;
-	SeekParms.dwTo = static_cast<ULONG>(time);
-	//跳转的目标时间，时间单位为毫秒
-	mciSendCommand(openedmidi, MCI_SEEK, MCI_TO
-		| MCI_WAIT, (DWORD)(LPVOID)
-		&SeekParms);
-	return 0.0;
-}
-size_t CMidiDecoder::Read(void * _Buffer, size_t _BufferSize, size_t _ElementSize, size_t _ElementCount)
-{
-	return size_t();
-}
-int CMidiDecoder::Seek(long _Offset, int _Origin)
-{
-	return 0;
+	DWORD time = (DWORD)((double)sec * (double)m_LengthSec) * 1000;
+	parent->Pause();
+	MCI_PLAY_PARMS pp;
+	pp.dwFrom = time;
+	mciSendCommand(openedmidi, MCI_PLAY, MCI_FROM, (DWORD)&pp);
+	return time;
 }
 double CMidiDecoder::GetCurSec()
 {

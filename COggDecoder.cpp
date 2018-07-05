@@ -36,6 +36,7 @@ long vorbisTell(void *file)
 bool COggDecoder::Open(LPWSTR file)
 {
 	_wfopen_s(&_Stream, file, L"rb");
+	fseek(_Stream, 0, SEEK_SET);
 	if (_Stream)
 	{
 		ov_callbacks callbacks = {
@@ -84,7 +85,7 @@ bool COggDecoder::Open(LPWSTR file)
 			return false;
 		}
 
-		m_SampleRate = pInfo->rate;
+		m_SampleRate = static_cast<ULONG>(pInfo->rate);
 		m_Channels = pInfo->channels; 
 		m_BitsPerSample = 16;
 		m_BitRate = pInfo->bitrate_nominal;
@@ -113,7 +114,7 @@ int COggDecoder::GetMusicBitsPerSample()
 {
 	return m_BitsPerSample;
 }
-int COggDecoder::GetMusicSampleRate()
+ULONG COggDecoder::GetMusicSampleRate()
 {
 	return m_SampleRate;
 }
@@ -121,26 +122,30 @@ int COggDecoder::GetMusicBitrate()
 {
 	return m_BitRate;
 }
+DWORD COggDecoder::GetMusicLengthSample()
+{
+	return static_cast<DWORD>(m_Samples);
+}
 
 double COggDecoder::GetMusicLength()
 {
 	return m_LengthSec;
 }
-double COggDecoder::GetCurSample()
+DWORD COggDecoder::GetCurSample()
 {
 	m_CurSample = ov_pcm_tell(&_OggFile);
-	return static_cast<double>(m_CurSample);
+	return static_cast<DWORD>(m_CurSample);
 }
-double COggDecoder::SeekToSample(double sec)
+DWORD COggDecoder::SeekToSample(DWORD sp)
 {
-	return ov_pcm_seek(&_OggFile, static_cast<ogg_int64_t>(sec));
+	return ov_pcm_seek(&_OggFile, static_cast<ogg_int64_t>(sp));
 }
 double COggDecoder::SeekToSec(double sec)
 {
 	return ov_pcm_seek(&_OggFile, static_cast<ogg_int64_t>(sec*m_SampleRate));
 }
 
-size_t COggDecoder::Read(void * _Buffer, size_t _BufferSize, size_t _ElementSize, size_t _ElementCount)
+size_t COggDecoder::Read(void * _Buffer, size_t _BufferSize)
 {
 	size_t result = 0;
 	BOOL CONTINUE = TRUE;
@@ -168,10 +173,6 @@ size_t COggDecoder::Read(void * _Buffer, size_t _BufferSize, size_t _ElementSize
 	}
 	result = bytes_read;
 	return result;
-}
-int COggDecoder::Seek(long _Offset, int _Origin)
-{
-	return 0;
 }
 double COggDecoder::GetCurSec()
 {

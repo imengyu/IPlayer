@@ -31,15 +31,18 @@
     <Filter Include="头文件\Helper">
       <UniqueIdentifier>{0cd2f7f7-e7d7-4186-809d-48100799a7a0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\Decoders\libFLAC">
+      <UniqueIdentifier>{ff7abc81-f319-4342-bf97-512e4c424b60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Decoders\libFLAC">
+      <UniqueIdentifier>{d27ffe6c-6660-46a5-acc7-1c8e5b58c632}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="targetver.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="CSoundOutPuter.h">
@@ -86,6 +89,165 @@
     </ClInclude>
     <ClInclude Include="FastFourierTransform.h">
       <Filter>头文件\Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectoryHelper.h">
+      <Filter>头文件\Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="PathHelper.h">
+      <Filter>头文件\Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="DbgHlper.h">
+      <Filter>头文件\Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="CriticalSection.h">
+      <Filter>头文件\Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="CWmaDecoder.h">
+      <Filter>头文件\Decoders</Filter>
+    </ClInclude>
+    <ClInclude Include="resource2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mywinres.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CFLACDecoder.h">
+      <Filter>头文件\Decoders</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\share\utf8.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\window.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\FLAC\export.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\ogg_decoder_aspect.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\ogg_helper.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\ogg_encoder_aspect.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\FLAC\all.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\all.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\include\protected\all.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\share\alloc.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\FLAC\assert.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\bitmath.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\bitreader.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\bitwriter.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\FLAC\callback.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\cpu.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\crc.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\share\grabbag\cuesheet.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\share\grabbag\file.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\fixed.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\float.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\FLAC\format.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\format.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\share\getopt.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\share\grabbag.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\lpc.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\md5.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\memory.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\FLAC\metadata.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\metadata.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\ia32\nasm.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\ogg_mapping.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\FLAC\ordinals.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\share\grabbag\picture.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\share\grabbag\replaygain.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\share\replaygain_analysis.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\share\replaygain_synthesis.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\share\grabbag\seektable.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\FLAC\stream_decoder.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\include\protected\stream_decoder.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\FLAC\stream_encoder.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\include\protected\stream_encoder.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDecorders\libFLAC\include\private\stream_encoder_framing.h">
+      <Filter>头文件\Decoders\libFLAC</Filter>
+    </ClInclude>
+    <ClInclude Include="CAC3Decoder.h">
+      <Filter>头文件\Decoders</Filter>
+    </ClInclude>
+    <ClInclude Include="CAacDecoder.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +301,90 @@
     </ClCompile>
     <ClCompile Include="FastFourierTransform.cpp">
       <Filter>源文件\Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="PathHelper.cpp">
+      <Filter>源文件\Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectoryHelper.cpp">
+      <Filter>源文件\Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="DbgHlper.cpp">
+      <Filter>源文件\Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="CWmaDecoder.cpp">
+      <Filter>源文件\Decoders</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerDecorders\libFLAC\window.c">
+      <Filter>源文件\Decoders\libFLAC</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerDecorders\libFLAC\stream_encoder.c">
+      <Filter>源文件\Decoders\libFLAC</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerDecorders\libFLAC\stream_decoder.c">
+      <Filter>源文件\Decoders\libFLAC</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerDecorders\libFLAC\metadata_object.c">
+      <Filter>源文件\Decoders\libFLAC</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerDecorders\libFLAC\metadata_iterators.c">
+      <Filter>源文件\Decoders\libFLAC</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerDecorders\libFLAC\bitmath.c">
+      <Filter>源文件\Decoders\libFLAC</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerDecorders\libFLAC\bitreader.c">
+      <Filter>源文件\Decoders\libFLAC</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerDecorders\libFLAC\bitwriter.c">
+      <Filter>源文件\Decoders\libFLAC</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerDecorders\libFLAC\cpu.c">
+      <Filter>源文件\Decoders\libFLAC</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerDecorders\libFLAC\crc.c">
+      <Filter>源文件\Decoders\libFLAC</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerDecorders\libFLAC\fixed.c">
+      <Filter>源文件\Decoders\libFLAC</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerDecorders\libFLAC\float.c">
+      <Filter>源文件\Decoders\libFLAC</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerDecorders\libFLAC\format.c">
+      <Filter>源文件\Decoders\libFLAC</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerDecorders\libFLAC\lpc.c">
+      <Filter>源文件\Decoders\libFLAC</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerDecorders\libFLAC\md5.c">
+      <Filter>源文件\Decoders\libFLAC</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerDecorders\libFLAC\memory.c">
+      <Filter>源文件\Decoders\libFLAC</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerDecorders\libFLAC\ogg_decoder_aspect.c">
+      <Filter>源文件\Decoders\libFLAC</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerDecorders\libFLAC\ogg_encoder_aspect.c">
+      <Filter>源文件\Decoders\libFLAC</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerDecorders\libFLAC\ogg_helper.c">
+      <Filter>源文件\Decoders\libFLAC</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerDecorders\libFLAC\ogg_mapping.c">
+      <Filter>源文件\Decoders\libFLAC</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerDecorders\libFLAC\stream_encoder_framing.c">
+      <Filter>源文件\Decoders\libFLAC</Filter>
+    </ClCompile>
+    <ClCompile Include="CFLACDecoder.cpp">
+      <Filter>源文件\Decoders</Filter>
+    </ClCompile>
+    <ClCompile Include="CAC3Decoder.cpp">
+      <Filter>源文件\Decoders</Filter>
+    </ClCompile>
+    <ClCompile Include="CAacDecoder.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -19,7 +19,7 @@ bool CSoundOutPuter::OnCopyData(CSoundPlayer * instance, LPVOID buf, DWORD buf_l
 	return false;
 }
 
-bool CSoundOutPuter::Create(HWND hWnd, int sample_rate, int channels, int bits_per_sample)
+bool CSoundOutPuter::Create(HWND hWnd, ULONG sample_rate, int channels, int bits_per_sample)
 {
 	return false;
 }
