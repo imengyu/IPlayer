@@ -22,6 +22,14 @@ else//open failed ,show error
     wprintf(L"Error : %s", GetPlayerError());
 }
 ```
-其他使用方法，请参照 WindowsFormsTest 项目里的代码（c#）
+其他使用方法，请参照 WindowsFormsTest 项目里的代码（c#）<br/>
 
+其中使用了以下一些开源解码库
+---
+* libmpg123
+* libogg
+* libvorbis
+* libFLAC
+* libffad
+* libffac
 
