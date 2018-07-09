@@ -17,6 +17,7 @@ enum TStreamFormat
 	sfWaveIn = 9,//not used
 	sfMidi = 10,//已支持MIDI
 	sfWma = 11,//已支持wma
+	sfM4a = 12,
 	sfAutodetect = 1000//not used
 };
 
@@ -36,12 +37,29 @@ enum TPlayerStatus
 	PlayEnd,
 };
 
+class CDecoderPlugin
+{
+public:
+	TStreamFormat TargetFormat = TStreamFormat::sfUnknown;
+	LPWSTR DllPath;
+	CSoundDecoder*Decoder = NULL;
+
+};
+
+typedef CSoundDecoder*(__cdecl*_CreateFun)(CDecoderPlugin*pu);
+typedef BOOL(__cdecl*_DestroyFun)(CDecoderPlugin*pu, CSoundDecoder*de);
+
 //播放器
 class CSoundPlayer
 {
 public:
 	CSoundPlayer();
 	~CSoundPlayer();
+
+	//加载解码器插件
+	bool LoadDecoderPlugin(TStreamFormat format, LPWSTR path, LPCSTR createFun, LPCSTR destroyFun) { return false; };
+	//卸载解码器插件
+	bool UnLoadDecoderPlugin(TStreamFormat format, LPWSTR path) { return false; };
 
 	//打开音乐
 	// *file ：音乐路径

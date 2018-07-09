@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "CAC3Decoder.h"
 
 

@@ -38,12 +38,8 @@
             this.timerPlay = new System.Windows.Forms.Timer(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.lable_vol = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.tkb_vol = new WindowsFormsTest.BTrackBar();
             this.tkb = new WindowsFormsTest.BTrackBar();
-            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_playpause
@@ -101,7 +97,8 @@
             // 
             // openFileDialog1
             // 
-            this.openFileDialog1.Filter = "音乐文件|*.mp3;*.mp2;*.mp1;*.wav;*.mid;*.midi;*.wma;*.ogg;*.pcm|所有文件|*.*";
+            this.openFileDialog1.Filter = "音乐文件|*.mp3;*.mp2;*.mp1;*.wav;*.mid;*.midi;*.wma;*.ogg;*.oga;*.flac;*.pcm|所有文件|*.*" +
+    "";
             this.openFileDialog1.Title = "打开音乐";
             // 
             // lable_vol
@@ -113,26 +110,6 @@
             this.lable_vol.TabIndex = 8;
             this.lable_vol.Text = "音量：100";
             this.lable_vol.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(335, 94);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(254, 94);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // tkb_vol
             // 
@@ -179,24 +156,11 @@
             this.tkb.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tkb_MouseDown);
             this.tkb.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tkb_MouseUp);
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(173, 94);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(525, 251);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.tkb_vol);
             this.Controls.Add(this.label_file);
             this.Controls.Add(this.label_time);
@@ -212,7 +176,6 @@
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.Load += new System.EventHandler(this.FormMain_Load);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormMain_Paint);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -230,10 +193,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private BTrackBar tkb_vol;
         private System.Windows.Forms.Label lable_vol;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
     }
 }
 

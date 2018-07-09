@@ -50,11 +50,15 @@ public:
 
 	//设置错误
 	bool err(wchar_t const* errmsg);
+	//设置错误
+	bool err(char const* errmsg);
 
 	//获取上次错误
 	LPWSTR GetLastErr() {
 		return lasterr;
 	}
+
+	bool CreateInPlugin = false;
 private:
 	WCHAR lasterr[256];
 

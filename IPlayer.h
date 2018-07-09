@@ -2,8 +2,24 @@
 #include "CSoundPlayer.h"
 #include "CSoundDecoder.h"
 #include "CSoundOutPuter.h"
+#include <list>
 
 #define WAVE_IN_NUM 15
+
+class CDecoderPluginReal : public CDecoderPlugin
+{
+public:
+	_CreateFun CreateFun;
+	_DestroyFun DestroyFun;
+	HMODULE hModule = NULL;
+
+	bool operator==(const CDecoderPluginReal right);
+	bool operator!=(const CDecoderPluginReal right);
+	bool operator==(const TStreamFormat right);
+	bool operator!=(const TStreamFormat right);
+	bool operator==(const LPWSTR right);
+	bool operator!=(const LPWSTR right);
+};
 
 class IPlayer : public CSoundPlayer
 {
@@ -19,7 +35,8 @@ public:
 	bool Stop();
 	bool Restart();
 	bool IsOpened();
-	
+
+	CSoundDecoder*GetCurrDecoder();
 	TStreamFormat GetFormat();
 	LPWSTR GetMusicPosTimeString();
 	LPWSTR GetMusicLenTimeString();
@@ -42,6 +59,10 @@ public:
 	int GetPlayerVolume();
 	void SetPlayerVolume(int vol);
 	bool IsPlayingMidi();
+	bool LoadDecoderPlugin(TStreamFormat format, LPWSTR path, LPCSTR createFun, LPCSTR destroyFun);
+	bool UnLoadDecoderPlugin(TStreamFormat format, LPWSTR path);
+	CSoundDecoder* CreateDecoderInPlugin(TStreamFormat format);
+	bool DestroyDecoderInPlugin(TStreamFormat format, CSoundDecoder * d);
 	TStreamFormat GetFileFormat(const wchar_t *pchFileName);
 	LPWSTR GetLastErr() {
 		return lasterr;

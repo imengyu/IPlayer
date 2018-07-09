@@ -3,6 +3,7 @@
 #include <iostream>
 #include <time.h>
 
+using namespace std;
 
 #include "CPcmDecoder.h"
 #include "CWavDecoder.h"
@@ -11,9 +12,13 @@
 #include "CMidiDecoder.h"
 #include "CWmaDecoder.h"
 #include "CFLACDecoder.h"
+#include "CAacDecoder.h"
+#include "CAC3Decoder.h"
 
 #include "CDSOutputer.h"
 #include <Digitalv.h>
+
+std::list<CDecoderPluginReal> decoders;
 
 IPlayer::IPlayer(HWND hWnd)
 {
@@ -56,7 +61,7 @@ bool IPlayer::Open(LPWSTR file)
 
 			int i1 = m_decoder->GetMusicSampleRate(), i2 = m_decoder->GetMusicChannelsCount(), i3 = m_decoder->GetMusicBitsPerSample();
 			if (i1 == -1 || i2 == -1 || i3 == -1) {
-				Close();
+				m_decoder->Close();
 				return err(L"User canceled play.");
 			}
 			m_outputer->Create(hostHWnd, i1, i2, i3);
@@ -240,9 +245,17 @@ bool IPlayer::IsOpened()
 	return false;
 }
 
+CSoundDecoder * IPlayer::GetCurrDecoder()
+{
+	if (IsOpened())
+		return m_decoder;
+	return nullptr;
+}
 TStreamFormat IPlayer::GetFormat()
 {
-	return m_openedFileFormat;
+	if (IsOpened())
+		return m_openedFileFormat;
+	return TStreamFormat::sfUnknown;
 }
 
 IPlayer *currentFadePlayer = NULL;
@@ -378,6 +391,84 @@ void IPlayer::SetPlayerVolume(int vol)
 bool IPlayer::IsPlayingMidi() {
 	return m_playingMidi;
 }
+bool IPlayer::LoadDecoderPlugin(TStreamFormat format, LPWSTR path, LPCSTR createFun, LPCSTR destroyFun)
+{
+	list<CDecoderPluginReal>::iterator it = find(decoders.begin(), decoders.end(), path);
+	if (it != decoders.end())
+		return err(L"Decoder have loaded.");
+	else
+	{
+		if (format != sfUnknown)
+		{
+			if (_waccess(path, 0) == 0)
+			{
+				CDecoderPluginReal d;
+				d.DllPath = path;
+				d.TargetFormat = format;
+				d.hModule = LoadLibrary(path);
+				if(!d.hModule) return err(L"Decoder file not load.");
+				d.CreateFun = (_CreateFun)GetProcAddress(d.hModule, createFun);
+				d.DestroyFun = (_DestroyFun)GetProcAddress(d.hModule, destroyFun);
+				if (d.CreateFun && d.DestroyFun)
+				{
+					decoders.push_back(d);
+					return true;
+				}
+				else
+				{
+					FreeLibrary(d.hModule);
+					return err(L"Decoder has not CreateFun and DestroyFun.");
+				}
+			}
+			else return err(L"Decoder file not find.");
+		}
+		else return err(L"TStreamFormat set bad.");
+	}
+}
+bool IPlayer::UnLoadDecoderPlugin(TStreamFormat format, LPWSTR path)
+{
+	list<CDecoderPluginReal>::iterator it = find(decoders.begin(), decoders.end(), path);
+	if (it != decoders.end())
+	{
+		CDecoderPluginReal d = *it;
+		if (d.TargetFormat == format)
+		{
+			if (FreeLibrary(GetModuleHandle(d.DllPath)))
+			{
+				decoders.remove(d);
+				return true;
+			}
+			else return err(L"FreeLibrary failed.");
+		}
+		else  return err(L"Bad Decoder format.");
+	}
+	else return err(L"Decoder not load.");
+}
+CSoundDecoder* IPlayer::CreateDecoderInPlugin(const TStreamFormat format)
+{
+	list<CDecoderPluginReal>::iterator it = find(decoders.begin(), decoders.end(), format);
+	if (it != decoders.end())
+	{
+		CDecoderPluginReal d = *it;
+		CSoundDecoder*de = d.CreateFun(&d);
+		de->CreateInPlugin = true;
+		return de;
+	}
+	return nullptr;
+}
+bool IPlayer::DestroyDecoderInPlugin(const TStreamFormat format, CSoundDecoder*de)
+{
+	if (de->CreateInPlugin)
+	{
+		list<CDecoderPluginReal>::iterator it = find(decoders.begin(), decoders.end(), format);
+		if (it != decoders.end())
+		{
+			CDecoderPluginReal d = *it;
+			return d.DestroyFun(&d, de);
+		}
+	}
+	return false;
+}
 
 TStreamFormat IPlayer::GetFileFormat(const wchar_t * pchFileName)
 {
@@ -510,6 +601,10 @@ TStreamFormat IPlayer::GetFileFormat(const wchar_t * pchFileName)
 			return sfMidi;
 		if (_wcsicmp(ext, L"mid") == 0)
 			return sfMidi;	
+		if (_wcsicmp(ext, L"m4a") == 0)
+			return sfM4a;
+		if (_wcsicmp(ext, L"mp4") == 0)
+			return sfM4a;
 	}
 
 	// failed to determine file format using filename extension
@@ -648,6 +743,8 @@ CSoundDecoder * IPlayer::CreateDecoderWithFormat(TStreamFormat f)
 		return new CFLACDecoder(false);
 	case sfFLACOgg:
 		return new CFLACDecoder(true);
+	case sfAacADTS:
+		return new CAacDecoder();
 	default:
 		err(L"Unsupport file format.");
 		break;
@@ -738,4 +835,27 @@ bool IPlayer::err(wchar_t const* errmsg)
 	return false;
 }
 
-
+bool CDecoderPluginReal::operator==(const CDecoderPluginReal left)
+{
+	return wcscmp(DllPath, left.DllPath) == 0;
+}
+bool CDecoderPluginReal::operator!=(const CDecoderPluginReal left)
+{
+	return wcscmp(DllPath, left.DllPath) != 0;
+}
+bool CDecoderPluginReal::operator==(const TStreamFormat right)
+{
+	return TargetFormat == right;
+}
+bool CDecoderPluginReal::operator!=(const TStreamFormat right)
+{
+	return TargetFormat != right;
+}
+bool CDecoderPluginReal::operator==(const LPWSTR right)
+{
+	return wcscmp(DllPath, right) == 0;
+}
+bool CDecoderPluginReal::operator!=(const LPWSTR right)
+{
+	return wcscmp(DllPath, right) != 0;
+}

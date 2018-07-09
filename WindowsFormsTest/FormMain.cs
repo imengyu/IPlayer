@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsTest
@@ -103,37 +97,5 @@ namespace WindowsFormsTest
             IPlayer.SetVolume((int)((1 - tkb_vol.Value) * 100));
             lable_vol.Text = "音量：" + (int)((1 - tkb_vol.Value) * 100);
         }
-
-        private void open(string file)
-        {
-            if (IPlayer.OpenMusic(file))
-            {
-                IPlayer.PlayMusic();
-                timerPlay.Start();
-                label_time.Text = "00:00/00:00";
-                label_file.Text = openFileDialog1.FileName;
-            }
-            else MessageBox.Show("打开失败：" + IPlayer.ptrtostr(IPlayer.GetPlayerError()));
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            open(@"E:\主数据库\音乐\声效\Windows XP 启动(2).wav");
-        }
-        private void button2_Click(object sender, EventArgs e)
-        {
-            open(@"C:\Users\15010\Music\aaaaaaa.mp3");
-        }
-        private void button3_Click(object sender, EventArgs e)
-        {
-            open(@"E:\主数据库\音乐\徐秉龙 - 千禧.flac");
-        }
-
-        private void FormMain_Paint(object sender, PaintEventArgs e)
-        {
-            
-        }
-
-
     }
 }

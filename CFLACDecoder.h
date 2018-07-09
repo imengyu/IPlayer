@@ -8,7 +8,7 @@ class CFLACDecoder :
 	public CSoundDecoder
 {
 public:
-	CFLACDecoder(bool ogg);
+	CFLACDecoder(bool isOgg);
 	~CFLACDecoder();
 
 	static void CFLACDecoder_FLAC__StreamDecoderErrorCallback(const FLAC__StreamDecoder * decoder, FLAC__StreamDecoderErrorStatus status, void * data);
